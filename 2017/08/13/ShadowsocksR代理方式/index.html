@@ -74,7 +74,7 @@
 <link href="/blog/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ShadowsocksR,科学上网," />
 
 
 
@@ -90,15 +90,19 @@
 
 
 
-<meta name="description" content="记录Web（主要是前端）的学习过程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="neoherus 的个人博客">
-<meta property="og:url" content="https://neoherus.github.io/blog/index.html">
+<meta name="description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代判理断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？">
+<meta name="keywords" content="ShadowsocksR,科学上网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ShadowsocksR代理方式">
+<meta property="og:url" content="https://neoherus.github.io/blog/2017/08/13/ShadowsocksR代理方式/index.html">
 <meta property="og:site_name" content="neoherus 的个人博客">
-<meta property="og:description" content="记录Web（主要是前端）的学习过程">
+<meta property="og:description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代判理断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？">
+<meta property="og:image" content="https://neoherus.github.io/images/SSR代理流程.png">
+<meta property="og:updated_time" content="2017-08-14T08:39:04.528Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="neoherus 的个人博客">
-<meta name="twitter:description" content="记录Web（主要是前端）的学习过程">
+<meta name="twitter:title" content="ShadowsocksR代理方式">
+<meta name="twitter:description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代判理断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？">
+<meta name="twitter:image" content="https://neoherus.github.io/images/SSR代理流程.png">
 
 
 
@@ -126,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://neoherus.github.io/blog/"/>
+  <link rel="canonical" href="https://neoherus.github.io/blog/2017/08/13/ShadowsocksR代理方式/"/>
 
 
 
 
 
-  <title>neoherus 的个人博客</title>
+  <title>ShadowsocksR代理方式 | neoherus 的个人博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -168,9 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -253,9 +255,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -281,9 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2017/08/13/ShadowsocksR代理方式/" itemprop="url">ShadowsocksR代理方式</a></h1>
+          <h1 class="post-title" itemprop="name headline">ShadowsocksR代理方式</h1>
         
 
         <div class="post-meta">
@@ -330,170 +330,109 @@
       
 
       
+        <p>ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代判理断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？<br><a id="more"></a></p>
+<h1 id="哪些软件能通过ShadowsocksR代理"><a href="#哪些软件能通过ShadowsocksR代理" class="headerlink" title="哪些软件能通过ShadowsocksR代理"></a>哪些软件能通过ShadowsocksR代理</h1><p>首先要知道，并不是所有的软件都能通过SSR进行代理。<br>ShadowsocksR只支持两种代理方式：</p>
+<ol>
+<li><strong>系统代理</strong>。浏览器一般都通过系统代理连接。</li>
+<li><strong>HTTP/Socks代理</strong>。其它应用也多数采用HTTP/Socks连接，所以大部分软件均可代理。</li>
+</ol>
+<p>不能通过ShadowsocksR代理的应用：</p>
+<ol>
+<li>大多数游戏。大多数游戏直接采用底层的TCP/UDP进行连接，无法代理。</li>
+<li>在 Win10下，UWP应用是运行在被隔离的AppContainers环境中，该环境阻止了网络流量发送到本机。因此，没有采用系统代理方式的UWP应用无法被代理（比如“邮件”应用无法登陆GMail），但是通过系统代理连接的UWP应用仍然可以连接（比如EDGE）。</li>
+</ol>
+<h1 id="不能通过-ShadowsocksR-连接的软件如何进行代理"><a href="#不能通过-ShadowsocksR-连接的软件如何进行代理" class="headerlink" title="不能通过 ShadowsocksR 连接的软件如何进行代理"></a>不能通过 ShadowsocksR 连接的软件如何进行代理</h1><p>要用到一款神器：Proxifier</p>
+<blockquote>
+<p>Proxifier是一款功能非常强大的socks5客户端，可以让不支持通过代理服务器工作的网络程序能通过HTTPS或SOCKS代理或代理链。</p>
+</blockquote>
+<p>教程：<a href="https://doub.io/ss-jc7/" target="_blank" rel="external">使用Proxifier把shadowsocks代理转为真·全局(类VPN) | 逗比根据地</a></p>
+<p>但是在Win10下，没有采用系统代理方式的UWP应用仍然无法代理，可以按照这篇文件进行解决：<a href="http://www.it610.com/article/4089572.htm" target="_blank" rel="external">Windows 10 Metro Apps使用Proxifier的方法 - 开源软件 - IT610.com</a></p>
+<h1 id="ShadowsocksR-代理流程"><a href="#ShadowsocksR-代理流程" class="headerlink" title="ShadowsocksR 代理流程"></a>ShadowsocksR 代理流程</h1><p>参考网络上的资料，我自己也画了一张SSR代理流程图：</p>
+<p><img src="/images/SSR代理流程.png" alt="SSR代理流程"></p>
+<blockquote>
+<p><strong>注意</strong>：“系统代理模式”的“PAC模式”是通过“pac.txt”文件判断网站是否进行代理，而“代理规则”则是通过IP地址进行判断是否为外网。</p>
+</blockquote>
+<p>通过流程图可以看出，SSR的“系统代理模式”选项只是控制通过系统代理连接的软件（比如浏览器）是否接入SSR，而其它软件的连接则不受此判断，直接接入SSR。</p>
+<p>而软件的连接接入SSR后，SSR再通过“代理规则”判断软件是否通过代理连接。</p>
+<p>所以，“系统代理模式”基本上只是控制浏览器访问的连接是否进入SSR，而“代理规则”才是最终决定所有连接是否代理的关键。</p>
+<blockquote>
+<p>参考资料：</p>
+<ol>
+<li><a href="https://www.tizipu.net/knowledgebase.php?action=displayarticle&amp;id=2" target="_blank" rel="external">SSR代理模式图 – 帮助中心 – 梯子铺</a></li>
+<li><a href="https://doub.io/ss-jc10/" target="_blank" rel="external">ShadowsocksR 客户端 小白使用教程 | 逗比根据地</a></li>
+<li><a href="https://doub.io/ss-jc9/" target="_blank" rel="external">Shadowsocks（Sock5代理）的PAC模式与全局模式与VPN的区别 | 逗比根据地</a></li>
+<li><a href="http://www.it610.com/article/4089572.htm" target="_blank" rel="external">Windows 10 Metro Apps使用Proxifier的方法 - 开源软件 - IT610.com</a></li>
+</ol>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
         
-          <p>ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代判理断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2017/08/13/ShadowsocksR代理方式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
-      
-    </div>
-
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://neoherus.github.io/blog/blog/2017/08/01/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="neoherus">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="neoherus 的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2017/08/01/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-01T21:54:26+08:00">
-                2017-08-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/blog/tags/ShadowsocksR/" rel="tag"># ShadowsocksR</a>
           
-            
+            <a href="/blog/tags/科学上网/" rel="tag"># 科学上网</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/08/01/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -501,6 +440,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -520,8 +463,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/blog/images/avatar.png"
@@ -603,6 +555,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#哪些软件能通过ShadowsocksR代理"><span class="nav-number">1.</span> <span class="nav-text">哪些软件能通过ShadowsocksR代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不能通过-ShadowsocksR-连接的软件如何进行代理"><span class="nav-number">2.</span> <span class="nav-text">不能通过 ShadowsocksR 连接的软件如何进行代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ShadowsocksR-代理流程"><span class="nav-number">3.</span> <span class="nav-text">ShadowsocksR 代理流程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -723,6 +691,10 @@
 
 
   
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
