@@ -90,19 +90,19 @@
 
 
 
-<meta name="description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代判理断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？">
+<meta name="description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？ 它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代理判断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？">
 <meta name="keywords" content="ShadowsocksR,科学上网">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ShadowsocksR代理方式">
-<meta property="og:url" content="https://neoherus.github.io/blog/2017/08/13/ShadowsocksR代理方式/index.html">
-<meta property="og:site_name" content="neoherus 的个人博客">
-<meta property="og:description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代判理断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？">
-<meta property="og:image" content="https://neoherus.github.io/images/SSR代理流程.png">
-<meta property="og:updated_time" content="2017-08-14T08:39:04.528Z">
+<meta property="og:url" content="https://vimcaw.github.io/blog/2017/08/13/ShadowsocksR代理方式/index.html">
+<meta property="og:site_name" content="vimcaw的个人博客">
+<meta property="og:description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？ 它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代理判断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？">
+<meta property="og:image" content="https://vimcaw.github.io/blog/2017/08/13/ShadowsocksR代理方式/SSR代理流程.png">
+<meta property="og:updated_time" content="2017-08-14T09:22:11.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ShadowsocksR代理方式">
-<meta name="twitter:description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代判理断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？">
-<meta name="twitter:image" content="https://neoherus.github.io/images/SSR代理流程.png">
+<meta name="twitter:description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？ 它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代理判断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？">
+<meta name="twitter:image" content="https://vimcaw.github.io/blog/2017/08/13/ShadowsocksR代理方式/SSR代理流程.png">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://neoherus.github.io/blog/2017/08/13/ShadowsocksR代理方式/"/>
+  <link rel="canonical" href="https://vimcaw.github.io/blog/2017/08/13/ShadowsocksR代理方式/"/>
 
 
 
 
 
-  <title>ShadowsocksR代理方式 | neoherus 的个人博客</title>
+  <title>ShadowsocksR代理方式 | vimcaw的个人博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -183,7 +183,7 @@
     <div class="custom-logo-site-title">
       <a href="/blog/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">neoherus 的个人博客</span>
+        <span class="site-title">vimcaw的个人博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -266,16 +266,16 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://neoherus.github.io/blog/blog/2017/08/13/ShadowsocksR代理方式/">
+    <link itemprop="mainEntityOfPage" href="https://vimcaw.github.io/blog/blog/2017/08/13/ShadowsocksR代理方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="neoherus">
+      <meta itemprop="name" content="vimcaw">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/blog/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="neoherus 的个人博客">
+      <meta itemprop="name" content="vimcaw的个人博客">
     </span>
 
     
@@ -330,7 +330,8 @@
       
 
       
-        <p>ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代判理断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？<br><a id="more"></a></p>
+        <p>ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？</p>
+<p>它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代理判断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？<br><a id="more"></a></p>
 <h1 id="哪些软件能通过ShadowsocksR代理"><a href="#哪些软件能通过ShadowsocksR代理" class="headerlink" title="哪些软件能通过ShadowsocksR代理"></a>哪些软件能通过ShadowsocksR代理</h1><p>首先要知道，并不是所有的软件都能通过SSR进行代理。<br>ShadowsocksR只支持两种代理方式：</p>
 <ol>
 <li><strong>系统代理</strong>。浏览器一般都通过系统代理连接。</li>
@@ -348,7 +349,7 @@
 <p>教程：<a href="https://doub.io/ss-jc7/" target="_blank" rel="external">使用Proxifier把shadowsocks代理转为真·全局(类VPN) | 逗比根据地</a></p>
 <p>但是在Win10下，没有采用系统代理方式的UWP应用仍然无法代理，可以按照这篇文件进行解决：<a href="http://www.it610.com/article/4089572.htm" target="_blank" rel="external">Windows 10 Metro Apps使用Proxifier的方法 - 开源软件 - IT610.com</a></p>
 <h1 id="ShadowsocksR-代理流程"><a href="#ShadowsocksR-代理流程" class="headerlink" title="ShadowsocksR 代理流程"></a>ShadowsocksR 代理流程</h1><p>参考网络上的资料，我自己也画了一张SSR代理流程图：</p>
-<p><img src="/images/SSR代理流程.png" alt="SSR代理流程"></p>
+<p><img src="SSR代理流程.png" alt=""></p>
 <blockquote>
 <p><strong>注意</strong>：“系统代理模式”的“PAC模式”是通过“pac.txt”文件判断网站是否进行代理，而“代理规则”则是通过IP地址进行判断是否为外网。</p>
 </blockquote>
@@ -477,10 +478,10 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/blog/images/avatar.png"
-               alt="neoherus" />
-          <p class="site-author-name" itemprop="name">neoherus</p>
+               alt="vimcaw" />
+          <p class="site-author-name" itemprop="name">vimcaw</p>
            
-              <p class="site-description motion-element" itemprop="description">记录Web（主要是前端）的学习过程</p>
+              <p class="site-description motion-element" itemprop="description">记录编程学习过程，以及软件评测</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -515,7 +516,7 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/neoherus" target="_blank" title="GitHub">
+                <a href="https://github.com/vimcaw" target="_blank" title="GitHub">
                   
                     <i class="fa fa-fw fa-github"></i>
                   
@@ -524,7 +525,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://www.quora.com/profile/Neoherus" target="_blank" title="Quora">
+                <a href="https://www.quora.com/profile/Vimcaw" target="_blank" title="Quora">
                   
                     <i class="fa fa-fw fa-quora"></i>
                   
@@ -592,7 +593,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">neoherus</span>
+  <span class="author" itemprop="copyrightHolder">vimcaw</span>
 </div>
 
 
