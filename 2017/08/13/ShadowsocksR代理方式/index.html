@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？ 它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代理判断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？ 本">
+<meta name="description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR凭借其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？ 它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代理判断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？ 本">
 <meta name="keywords" content="ShadowsocksR,科学上网">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ShadowsocksR代理方式">
 <meta property="og:url" content="https://vimcaw.github.io/blog/2017/08/13/ShadowsocksR代理方式/index.html">
 <meta property="og:site_name" content="vimcaw的个人博客">
-<meta property="og:description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？ 它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代理判断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？ 本">
+<meta property="og:description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR凭借其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？ 它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代理判断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？ 本">
 <meta property="og:image" content="https://vimcaw.github.io/blog/2017/08/13/ShadowsocksR代理方式/SSR代理流程.png">
-<meta property="og:updated_time" content="2017-08-14T09:26:05.846Z">
+<meta property="og:updated_time" content="2017-08-14T09:33:15.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ShadowsocksR代理方式">
-<meta name="twitter:description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？ 它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代理判断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？ 本">
+<meta name="twitter:description" content="ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR凭借其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？ 它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代理判断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？ 本">
 <meta name="twitter:image" content="https://vimcaw.github.io/blog/2017/08/13/ShadowsocksR代理方式/SSR代理流程.png">
 
 
@@ -330,7 +330,7 @@
       
 
       
-        <p>ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR靠着其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？</p>
+        <p>ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR凭借其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？</p>
 <p>它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代理判断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？</p>
 <p>本文将对其一一解答。<br><a id="more"></a></p>
 <h1 id="哪些软件能通过ShadowsocksR代理"><a href="#哪些软件能通过ShadowsocksR代理" class="headerlink" title="哪些软件能通过ShadowsocksR代理"></a>哪些软件能通过ShadowsocksR代理</h1><p>首先要知道，并不是所有的软件都能通过SSR进行代理。<br>ShadowsocksR只支持两种代理方式：</p>
