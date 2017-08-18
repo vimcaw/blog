@@ -347,6 +347,9 @@ ul.article-list >li .content a::after {
   line-height: 30px;
   color: #fff;
 }
+.info .category ul li a:hover {
+  text-decoration: none;
+}
 .info div {
   display: inline-block;
 }
