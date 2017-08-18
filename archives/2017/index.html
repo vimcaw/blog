@@ -1,645 +1,164 @@
 <!doctype html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="" media="screen" />
     
+    <link rel="stylesheet" href="/blog/css/style.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro">
+    <link rel="stylesheet" href="/blog/font-awesome-4.7.0/css/font-awesome.min.css">
+
     
-  
 
-  
-
-  
-
-  
-
-  
-
-  
     
+
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
+    
 
-
-
-
-
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/blog/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.1" />
-
-
-
-
-
-
-<meta name="description" content="记录编程学习过程，以及软件评测">
-<meta property="og:type" content="website">
-<meta property="og:title" content="vimcaw的个人博客">
-<meta property="og:url" content="https://vimcaw.github.io/blog/archives/2017/index.html">
-<meta property="og:site_name" content="vimcaw的个人博客">
-<meta property="og:description" content="记录编程学习过程，以及软件评测">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vimcaw的个人博客">
-<meta name="twitter:description" content="记录编程学习过程，以及软件评测">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/blog/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="https://vimcaw.github.io/blog/archives/2017/"/>
-
-
-
-
-
-  <title>归档 | vimcaw的个人博客</title>
+    
+        <link rel="shortcut icon" href="/blog/image/favicon.ico" type="image/vnd.microsoft.icon" />
+    
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?225a93105c51917bf3f66be03ac87869";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left  page-archive  ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/blog/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">vimcaw的个人博客</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">Web前端</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+<body>
+    <header>
+    <div class="icon"><a href="/"><img src="/blog/image/icon.png" alt="">vimcaw的个人博客</a></div>
+    <ul>
+        <li><a href="/" class="">首页</a></li>
         
-        <li class="menu-item menu-item-home">
-          <a href="/blog/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
+            <ul class="site-category-list"><li class="site-category-list-item"><a class="site-category-list-link" href="/blog/categories/个人项目/">个人项目</a></li><li class="site-category-list-item"><a class="site-category-list-link" href="/blog/categories/软件/">软件</a></li></ul>
         
-        <li class="menu-item menu-item-archives">
-          <a href="/blog/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/blog/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-
-      
     </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
+</header>
+    <ul class="article-list">
+    
+    <li>
+        
+        <h2><a href="/blog/2017/08/18/Pixelshop/" title="Pixelshop">Pixelshop</a></h2>
+        <div class="info">
+	<div class="category">
             
-
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 2 篇日志。 继续努力。
-    </span>
-
-    
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2017/08/13/ShadowsocksR代理方式/" itemprop="url">
-              
-                <span itemprop="name">ShadowsocksR代理方式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-13T22:45:30+08:00"
-              content="2017-08-13" >
-          08-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2017/08/01/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-01T21:54:26+08:00"
-              content="2017-08-01" >
-          08-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="article-category">
+    <ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/个人项目/">个人项目</a></li></ul>
   </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
+     </div>
+     <ul>
+     	<li class="date">
+     		<span class="fa fa-calendar"> 发表于 </span>
+     		<span>2017-08-18</span>
+     	</li>
+     	<li class="tag">
+     		<span class="fa fa-tags"> 标签:</span>
+    		
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Web-App/">Web-App</a></li></ul>
 
-      
-
-      
-
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/blog/images/avatar.png"
-               alt="vimcaw" />
-          <p class="site-author-name" itemprop="name">vimcaw</p>
-           
-              <p class="site-description motion-element" itemprop="description">记录编程学习过程，以及软件评测</p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/blog/archives">
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/vimcaw" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.quora.com/profile/Vimcaw" target="_blank" title="Quora">
-                  
-                    <i class="fa fa-fw fa-quora"></i>
-                  
-                  Quora
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/people/zhu-chang-sheng-87/activities" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">vimcaw</span>
-</div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
-
-
-        
-
-        
-      </div>
-    </footer>
-
+     	</li>
+     </ul>
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
-
+</div>
+        <article>
+            
+                <h1 id="English-intro"><a href="#English-intro" class="headerlink" title="English intro"></a>English intro</h1><p>Pixelshop is A small Photoshop, JavaScript-based web application, which contains the most commonly used Photoshop features.</p>
+<p>This Project is developing, because I just spend spare time, I predict it will acomplish main function on Dec, 2017. </p>
+<p>preview: <a href="https://vimcaw.github.io/Pixelshop/">https://vimcaw.github.io/Pixelshop/</a></p>
+<h1 id="中文介绍"><a href="#中文介绍" class="headerlink" title="中文介绍"></a>中文介绍</h1><p>Pixelshop 是一个小型的 Photoshop，一个基于原生 JavaScript 实现的 Web 应用，它包含了 Photoshop 最常用的功能。</p>
+<p>此项目目前还在开发中，由于只花费业余时间进行开发，预计 2017 年 12 月完成主要功能。</p>
+<p>预览：<a href="https://vimcaw.github.io/Pixelshop/">https://vimcaw.github.io/Pixelshop/</a></p>
+            
+        </article>
+        <div class="mask"></div>
+        <div class="content"><a href="/blog/2017/08/18/Pixelshop/" title="阅读全文">阅读全文</a></div>
+    </li>
+    
+    <li>
+        
+        <h2><a href="/blog/2017/08/13/ShadowsocksR代理方式/" title="ShadowsocksR代理方式">ShadowsocksR代理方式</a></h2>
+        <div class="info">
+	<div class="category">
+            
+  <div class="article-category">
+    <ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/软件/">软件</a></li></ul>
   </div>
 
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.1"></script>
-
-
-
-  
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.1"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
+     </div>
+     <ul>
+     	<li class="date">
+     		<span class="fa fa-calendar"> 发表于 </span>
+     		<span>2017-08-13</span>
+     	</li>
+     	<li class="tag">
+     		<span class="fa fa-tags"> 标签:</span>
+    		
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ShadowsocksR/">ShadowsocksR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/科学上网/">科学上网</a></li></ul>
+
+     	</li>
+     </ul>
+    
+    
+</div>
+        <article>
+            
+                <p>ShadowsocksR（以下简称SSR） 一直是科学上网的神器，即使在现在VPN封杀无数、Shadowsocks被嗅探出特征而被封锁的艰难时刻，SSR凭借其混淆功能仍能屹立不倒。那么它能代理哪些软件呢？</p>
+<p>它有个很方便的地方是可以根据访问的网址是否为外网决定是否进行代理连接。但是它有两个地方可以进行代理判断，一个是“系统代理模式”，一个是“代理规则”，那么它们有什么区别，又分别实现什么功能呢？</p>
+<p>本文将对其一一解答。<br>
+            
+        </article>
+        <div class="mask"></div>
+        <div class="content"><a href="/blog/2017/08/13/ShadowsocksR代理方式/" title="阅读全文">阅读全文</a></div>
+    </li>
+    
+    <li>
+        
+        <h2><a href="/blog/2017/08/18/WebDesktop/" title="WebDesktop">WebDesktop</a></h2>
+        <div class="info">
+	<div class="category">
+            
+  <div class="article-category">
+    <ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/个人项目/">个人项目</a></li></ul>
+  </div>
+
+     </div>
+     <ul>
+     	<li class="date">
+     		<span class="fa fa-calendar"> 发表于 </span>
+     		<span>2017-08-18</span>
+     	</li>
+     	<li class="tag">
+     		<span class="fa fa-tags"> 标签:</span>
+    		
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/UI-framework/">UI framework</a></li></ul>
+
+     	</li>
+     </ul>
+    
+    
+</div>
+        <article>
+            
+                <p>WebDesktop is a lightweight web UI framework, it provides some UI components for desktop applications, such as multilevel menu, windows, context menu, tree components, tabs.</p>
+<p>Home: <a href="https://vimcaw.github.io/WebDesktop/">https://vimcaw.github.io/WebDesktop/</a></p>
+<p>Demo: <a href="https://vimcaw.github.io/WebDesktop/demo/demo.html">https://vimcaw.github.io/WebDesktop/demo/demo.html</a></p>
+<p>Document: <a href="https://vimcaw.github.io/WebDesktop/document/document_zh-cn.html">https://vimcaw.github.io/WebDesktop/document/document_zh-cn.html</a><br>
+            
+        </article>
+        <div class="mask"></div>
+        <div class="content"><a href="/blog/2017/08/18/WebDesktop/" title="阅读全文">阅读全文</a></div>
+    </li>
+    
+</ul>
+    <footer>
+	<ul class="social">
+		<li><a href="https://github.com/vimcaw" class="fa fa-github">GitHub</a></li>
+		<li><a href="mailto:vimcaw@gmail.com" class="fa fa-envelope">Email: vimcaw@gmail.com</a></li>
+		<li><a href="https://www.zhihu.com/people/zhu-chang-sheng-87/" class="fa fa-globe">知乎</a></li>
+	</ul>
+	<div class="copyright"><p>© 2017 Rico Zhu (朱昌盛)</p></div>
+	<div class="powered-by"><p>Powered by <a href="https://hexo.io/">Hexo</a></p></div>
+</footer>
 </body>
 </html>
