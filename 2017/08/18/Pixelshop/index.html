@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/blog/css/style.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro">
     <link rel="stylesheet" href="/blog/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/icon-font/iconfont.css">
 
     
 
@@ -28,7 +29,7 @@
     
 </head>
 <body>
-    <header>
+    <header id="top">
     <div class="icon"><a href="/blog/"><img src="/blog/image/icon.png" alt="">vimcaw的个人博客</a></div>
     <ul>
         <li><a href="/blog/" class="">首页</a></li>
@@ -37,13 +38,14 @@
         
     </ul>
 </header>
+    <div class="content">
     <div class="sidebar">
     <h3>文章导航</h3>
     <ul></ul>
 </div>
-<div class="main">
-    <p class="title">Pixelshop</p>
-    <div class="info">
+    <div class="main">
+        <header>Pixelshop</header>
+        <div class="info">
 	<div class="category">
             
   <div class="article-category">
@@ -66,8 +68,8 @@
     
     
 </div>
-    <article>
-        <h1 id="English-intro"><a href="#English-intro" class="headerlink" title="English intro"></a>English intro</h1><p>Pixelshop is A small Photoshop, JavaScript-based web application, which contains the most commonly used Photoshop features.</p>
+        <article>
+            <h1 id="English-intro"><a href="#English-intro" class="headerlink" title="English intro"></a>English intro</h1><p>Pixelshop is A small Photoshop, JavaScript-based web application, which contains the most commonly used Photoshop features.</p>
 <p>This Project is developing, because I just spend spare time, I predict it will acomplish main function on Dec, 2017. </p>
 <p>preview: <a href="https://vimcaw.github.io/Pixelshop/">https://vimcaw.github.io/Pixelshop/</a></p>
 <h1 id="中文介绍"><a href="#中文介绍" class="headerlink" title="中文介绍"></a>中文介绍</h1><p>Pixelshop 是一个小型的 Photoshop，一个基于原生 JavaScript 实现的 Web 应用，它包含了 Photoshop 最常用的功能。</p>
@@ -105,10 +107,12 @@
 </ul>
 </blockquote>
 
-    </article>
-    <div id="comment"></div>
+        </article>
+        <div id="comment"></div>
+        <div id="nav-btn" class="fa fa-bars"></div>
+    </div>
+    <div class="image-box"></div>
 </div>
-<div class="image-box"></div>
 
 <script src="/blog/js/function.js"></script>
 <script src="/blog/js/post.js"></script>
@@ -129,11 +133,11 @@
 </script>
     <footer>
 	<ul class="social">
-		<li><a href="https://github.com/vimcaw" class="fa fa-github">GitHub</a></li>
-		<li><a href="mailto:vimcaw@gmail.com" class="fa fa-envelope">Email: vimcaw@gmail.com</a></li>
-		<li><a href="https://www.zhihu.com/people/zhu-chang-sheng-87/" class="fa fa-globe">知乎</a></li>
+		<li><a href="https://github.com/vimcaw" title="GitHub账号：https://github.com/vimcaw" class="fa fa-github"></a></li>
+		<li><a href="mailto:vimcaw@gmail.com" title="Email: vimcaw@gmail.com" class="fa fa-envelope"></a></li>
+		<li><a href="https://www.zhihu.com/people/zhu-chang-sheng-87/" title="知乎账号: https://www.zhihu.com/people/zhu-chang-sheng-87/" class="iconfont icon-matuwang-zhihufangxingdianji"></a></li>
 	</ul>
-	<div class="copyright"><p>© 2017 Rico Zhu (朱昌盛)</p></div>
+	<div class="copyright"><p>© 2017 <a href="https://github.com/vimcaw">Rico Zhu (朱昌盛)</a></p></div>
 	<div class="powered-by"><p>Powered by <a href="https://hexo.io/">Hexo</a></p></div>
 </footer>
 </body>

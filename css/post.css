@@ -4,29 +4,32 @@ li {
   padding: 0;
 }
 body {
-  width: 80vw;
-  margin-left: 10vw;
-  margi-right: 10vw;
+  margin: 0;
+  width: 100%;
   transition: all 0.8s;
-}
-body,
-.smooth-container {
-  scroll-behavior: smooth;
 }
 .main {
   position: relative;
-  width: 50vw;
-  padding: 50px;
-  margin: 20px;
+  width: 50em;
+  padding: 2em;
+  margin-right: 20em;
+  margin-bottom: 2em;
   background: #fff;
   color: #373737;
 }
+.main header {
+  font-size: 3em;
+  padding: 1em 0;
+}
+.content {
+  position: relative;
+}
 .sidebar {
   position: fixed;
-  right: 10vw;
-  width: 15vw;
-  padding: 20px;
+  margin: 0 0 50em 55em;
+  padding: 2%;
   background: #fff;
+  z-index: 500;
 }
 .sidebar ul {
   position: relative;
@@ -52,9 +55,6 @@ body,
 }
 .sidebar ul a.current {
   color: #bf0909;
-}
-p.title {
-  font-size: 3em;
 }
 h1 {
   color: #000;
@@ -84,7 +84,7 @@ article p {
 article blockquote {
   padding: 5px;
   padding-left: 30px;
-  margin-left: 0;
+  margin: 0;
   background: #f4f4f4;
   color: #585858;
   border-left: 8px solid #4d4d4d;
@@ -110,7 +110,39 @@ pre {
 .highlight div.line {
   font-family: "Source Code Pro", Menlo, Consolas, XHei, "微软雅黑", "黑体" !important;
 }
-@media screen and (max-device-width: 800px) {
+#nav-btn {
+  display: none;
+}
+@media screen and (min-width: 70em) {
+  .content {
+    position: relative;
+    width: 70em;
+    margin: auto;
+  }
+  .main {
+    width: 50em;
+    margin-right: 20em;
+  }
+  .sidebar {
+    width: 10em;
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 70em) and (min-width: 50em) {
+  .content {
+    width: 90%;
+    margin: auto;
+  }
+  .main {
+    width: 70%;
+    margin-right: 30%;
+  }
+  .sidebar {
+    width: 14%;
+    right: 5%;
+  }
+}
+@media screen and (max-width: 50em) {
   body {
     width: 100%;
     margin: 0;
@@ -123,5 +155,33 @@ pre {
   }
   blockquote {
     margin: 0;
+  }
+  .sidebar {
+    display: none;
+    right: 5%;
+    bottom: 10%;
+    width: 6em;
+    margin: 0;
+    color: #eee;
+    background: rgba(0,0,0,0.5);
+  }
+  .sidebar ul li a {
+    color: #eee;
+  }
+  .sidebar ul li a.overflow::after {
+    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5));
+  }
+  .sidebar ul li a.current {
+    color: #e29388;
+  }
+  #nav-btn {
+    display: inline-block;
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    font-size: 1em;
+    padding: 0.5em;
+    color: #eee;
+    background: rgba(0,0,0,0.5);
   }
 }

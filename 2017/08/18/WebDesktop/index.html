@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/blog/css/style.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro">
     <link rel="stylesheet" href="/blog/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/icon-font/iconfont.css">
 
     
 
@@ -28,7 +29,7 @@
     
 </head>
 <body>
-    <header>
+    <header id="top">
     <div class="icon"><a href="/blog/"><img src="/blog/image/icon.png" alt="">vimcaw的个人博客</a></div>
     <ul>
         <li><a href="/blog/" class="">首页</a></li>
@@ -37,13 +38,14 @@
         
     </ul>
 </header>
+    <div class="content">
     <div class="sidebar">
     <h3>文章导航</h3>
     <ul></ul>
 </div>
-<div class="main">
-    <p class="title">WebDesktop</p>
-    <div class="info">
+    <div class="main">
+        <header>WebDesktop</header>
+        <div class="info">
 	<div class="category">
             
   <div class="article-category">
@@ -66,8 +68,8 @@
     
     
 </div>
-    <article>
-        <p>WebDesktop is a lightweight web UI framework, it provides some UI components for desktop applications, such as multilevel menu, windows, context menu, tree components, tabs.</p>
+        <article>
+            <p>WebDesktop is a lightweight web UI framework, it provides some UI components for desktop applications, such as multilevel menu, windows, context menu, tree components, tabs.</p>
 <p>Home: <a href="https://vimcaw.github.io/WebDesktop/">https://vimcaw.github.io/WebDesktop/</a></p>
 <p>Demo: <a href="https://vimcaw.github.io/WebDesktop/demo/demo.html">https://vimcaw.github.io/WebDesktop/demo/demo.html</a></p>
 <p>Document: <a href="https://vimcaw.github.io/WebDesktop/document/document_zh-cn.html">https://vimcaw.github.io/WebDesktop/document/document_zh-cn.html</a><br><a id="more"></a></p>
@@ -97,10 +99,12 @@
 </ul>
 <h1 id="License"><a href="#License" class="headerlink" title="License"></a>License</h1><p>MIT</p>
 
-    </article>
-    <div id="comment"></div>
+        </article>
+        <div id="comment"></div>
+        <div id="nav-btn" class="fa fa-bars"></div>
+    </div>
+    <div class="image-box"></div>
 </div>
-<div class="image-box"></div>
 
 <script src="/blog/js/function.js"></script>
 <script src="/blog/js/post.js"></script>
@@ -121,11 +125,11 @@
 </script>
     <footer>
 	<ul class="social">
-		<li><a href="https://github.com/vimcaw" class="fa fa-github">GitHub</a></li>
-		<li><a href="mailto:vimcaw@gmail.com" class="fa fa-envelope">Email: vimcaw@gmail.com</a></li>
-		<li><a href="https://www.zhihu.com/people/zhu-chang-sheng-87/" class="fa fa-globe">知乎</a></li>
+		<li><a href="https://github.com/vimcaw" title="GitHub账号：https://github.com/vimcaw" class="fa fa-github"></a></li>
+		<li><a href="mailto:vimcaw@gmail.com" title="Email: vimcaw@gmail.com" class="fa fa-envelope"></a></li>
+		<li><a href="https://www.zhihu.com/people/zhu-chang-sheng-87/" title="知乎账号: https://www.zhihu.com/people/zhu-chang-sheng-87/" class="iconfont icon-matuwang-zhihufangxingdianji"></a></li>
 	</ul>
-	<div class="copyright"><p>© 2017 Rico Zhu (朱昌盛)</p></div>
+	<div class="copyright"><p>© 2017 <a href="https://github.com/vimcaw">Rico Zhu (朱昌盛)</a></p></div>
 	<div class="powered-by"><p>Powered by <a href="https://hexo.io/">Hexo</a></p></div>
 </footer>
 </body>

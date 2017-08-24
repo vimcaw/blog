@@ -52,3 +52,7 @@ window.addEventListener('scroll', function () {
         }
     })
 })
+
+$('#nav-btn').addEventListener('click', function () {
+    $('.sidebar').style.display = ($('.sidebar').style.display === 'block') ? 'none' : 'block';
+});

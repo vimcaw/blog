@@ -164,7 +164,7 @@ pre .javascript .function {
   color: #c9c;
 }
 body {
-  margin-top: 6em;
+  margin: 0;
   background: #f6f6f6;
   font-family: XHei, '微软雅黑', '黑体';
   font-size: 100%;
@@ -173,7 +173,7 @@ ul.article-list {
   width: 60vw;
   list-style-type: none;
   padding-left: 0;
-  margin-left: 10vw;
+  margin: auto;
 }
 ul.article-list >li {
   position: relative;
@@ -212,94 +212,89 @@ a:visited {
 a:hover {
   text-decoration: underline;
 }
-header ul,
+header#top ul,
 footer .social,
 .info ul {
   display: inline-block;
   padding-left: 0;
   list-style-type: none;
 }
-header ul li,
+header#top ul li,
 footer .social li,
 .info ul li {
   display: inline-block;
 }
-header {
-  position: absolute;
-  left: 0;
-  top: 0;
+header#top {
   width: 100%;
   height: 4em;
   background: #fff;
   overflow: hidden;
+  margin-bottom: 2em;
 }
-header div {
+header#top div {
   margin-left: 12vw;
   display: inline-block;
 }
-header div img {
+header#top div img {
   width: 2em;
   height: 2em;
   vertical-align: middle;
   margin-right: 10px;
 }
-header div a {
+header#top div a {
   color: #000;
 }
-header div a:hover {
+header#top div a:hover {
   text-decoration: none;
 }
-header div a:visited {
+header#top div a:visited {
   color: #000;
 }
-header >ul {
+header#top >ul {
   padding-left: 10vw;
   margin-top: 1em;
 }
-header >ul li {
+header#top >ul li {
   display: inline-block;
   list-style: none;
 }
-header >ul li a {
+header#top >ul li a {
   display: inline-block;
   padding: 5px 10px;
   color: #000;
 }
-header >ul li a:hover {
+header#top >ul li a:hover {
   text-decoration: none;
   color: #1571d3;
 }
-header >ul li a:hover:visited {
+header#top >ul li a:hover:visited {
   color: #1571d3;
 }
-header >ul li a:visited {
+header#top >ul li a:visited {
   color: #000;
 }
 footer {
-  position: absolute;
-  left: 10vw;
   width: 55vw;
+  margin: 2em auto;
   text-align: center;
 }
 footer .social {
   margin: auto;
 }
 footer .social li {
-  color: #333;
-  margin-left: 20px;
-  padding: 6px 10px;
-}
-footer .social li:hover {
-  background: #ddd;
+  color: #555;
+  margin: 0.5em 2em;
 }
 footer .social li a {
-  color: #333;
+  color: #555;
+  font-size: 2em;
+  border-radius: 50%;
+  vertical-align: middle;
+  transition: all 0.8s;
 }
 footer .social li a:hover {
+  color: #2a2a2a;
   text-decoration: none;
-}
-footer .social li a::before {
-  margin-right: 10px;
 }
 .info {
   font-size: 12px;
@@ -387,7 +382,17 @@ footer .social li a::before {
 .info ul li a.article-tag-list-link:hover::after {
   border-left: 1em solid #0b5466;
 }
-@media screen and (max-device-width: 800px) {
+@media screen and (min-width: 70em) {
+  ul.article-list {
+    width: 50em;
+  }
+}
+@media screen and (max-width: 70em) and (min-width: 50em) {
+  ul.article-list {
+    width: 50em;
+  }
+}
+@media screen and (max-width: 800px) {
   body {
     margin-top: 0;
     overflow-x: hidden;
@@ -397,18 +402,17 @@ footer .social li a::before {
     width: 100%;
     margin: 0;
   }
-  header {
-    position: static;
+  header#top {
     height: auto;
     margin: 0 0 8% 0;
   }
-  header div.icon {
+  header#top div.icon {
     margin: 0;
     width: 100%;
     padding: 5%;
     border-bottom: 0.2vw solid #ddd;
   }
-  header >ul {
+  header#top >ul {
     margin: 2%;
     padding-left: 0;
     display: block;
@@ -416,10 +420,6 @@ footer .social li a::before {
   footer {
     position: static;
     width: 100%;
-    text-align: left;
-  }
-  footer ul.social li {
-    display: block;
   }
   footer div {
     width: 100%;
