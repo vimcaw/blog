@@ -80,13 +80,13 @@
 <li>大多数游戏。大多数游戏直接采用底层的TCP/UDP进行连接，无法代理。</li>
 <li>在 Win10下，UWP应用是运行在被隔离的AppContainers环境中，该环境阻止了网络流量发送到本机。因此，没有采用系统代理方式的UWP应用无法被代理（比如“邮件”应用无法登陆GMail），但是通过系统代理连接的UWP应用仍然可以连接（比如EDGE）。</li>
 </ol>
-<h1 id="不能通过-ShadowsocksR-连接的软件如何进行代理"><a href="#不能通过-ShadowsocksR-连接的软件如何进行代理" class="headerlink" title="不能通过 ShadowsocksR 连接的软件如何进行代理"></a>不能通过 ShadowsocksR 连接的软件如何进行代理</h1><p>要用到一款神器：Proxifier</p>
+<h1 id="不能通过ShadowsocksR连接的软件如何进行代理"><a href="#不能通过ShadowsocksR连接的软件如何进行代理" class="headerlink" title="不能通过ShadowsocksR连接的软件如何进行代理"></a>不能通过ShadowsocksR连接的软件如何进行代理</h1><p>要用到一款神器：Proxifier</p>
 <blockquote>
 <p>Proxifier是一款功能非常强大的socks5客户端，可以让不支持通过代理服务器工作的网络程序能通过HTTPS或SOCKS代理或代理链。</p>
 </blockquote>
 <p>教程：<a href="https://doub.io/ss-jc7/" target="_blank" rel="external">使用Proxifier把shadowsocks代理转为真·全局(类VPN) | 逗比根据地</a></p>
 <p>但是在Win10下，没有采用系统代理方式的UWP应用仍然无法代理，可以按照这篇文件进行解决：<a href="http://www.it610.com/article/4089572.htm" target="_blank" rel="external">Windows 10 Metro Apps使用Proxifier的方法 - 开源软件 - IT610.com</a></p>
-<h1 id="ShadowsocksR-代理流程"><a href="#ShadowsocksR-代理流程" class="headerlink" title="ShadowsocksR 代理流程"></a>ShadowsocksR 代理流程</h1><p>参考网络上的资料，我自己也画了一张SSR代理流程图：</p>
+<h1 id="ShadowsocksR代理流程"><a href="#ShadowsocksR代理流程" class="headerlink" title="ShadowsocksR代理流程"></a>ShadowsocksR代理流程</h1><p>参考网络上的资料，我自己也画了一张SSR代理流程图：</p>
 <p><img src="image/SSR代理流程.png" alt="SSR代理流程"></p>
 <blockquote>
 <p><strong>注意</strong>：“系统代理模式”的“PAC模式”是通过“pac.txt”文件判断网站是否进行代理，而“代理规则”则是通过IP地址进行判断是否为外网。</p>
@@ -112,11 +112,10 @@
 <script src="/blog/js/function.js"></script>
 <script src="/blog/js/post.js"></script>
 <script src="/blog/js/sidebar.js"></script>
-<script src="/blog/js/smooth-scroll.min.js"></script>
+<script src="//unpkg.com/sweet-scroll/sweet-scroll.min.js"></script>
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
-    var scroll = new SmoothScroll('a[href*="#"]');
-
+    const sweetScroll = new SweetScroll({afterScroll: () => {location.replace($('.sidebar ul a.current').href)}});
     var gitment = new Gitment({
 		owner: 'vimcaw',
 		repo: 'blog',
@@ -127,8 +126,6 @@
 	});
 	gitment.render('comment')
 </script>
-
-
     <footer>
 	<ul class="social">
 		<li><a href="https://github.com/vimcaw" class="fa fa-github">GitHub</a></li>

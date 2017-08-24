@@ -7,6 +7,11 @@ body {
   width: 80vw;
   margin-left: 10vw;
   margi-right: 10vw;
+  transition: all 0.8s;
+}
+body,
+.smooth-container {
+  scroll-behavior: smooth;
 }
 .main {
   position: relative;
@@ -104,4 +109,19 @@ pre {
 .highlight .line span,
 .highlight div.line {
   font-family: "Source Code Pro", Menlo, Consolas, XHei, "微软雅黑", "黑体" !important;
+}
+@media screen and (max-device-width: 800px) {
+  body {
+    width: 100%;
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+  .main {
+    width: 90%;
+    margin: 0;
+    padding: 1em 5% 1em 5%;
+  }
+  blockquote {
+    margin: 0;
+  }
 }

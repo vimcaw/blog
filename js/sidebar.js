@@ -4,9 +4,9 @@ var $nav = document.querySelector('.sidebar ul'),
 $h1s.forEach(function (element) {
     let $li = document.createElement('li'),
         $a = document.createElement('a');
-    element.id = element.innerText;
+    element.id = element.innerText.replace(' ', '-');
     $a.innerText = element.innerText;
-    $a.href = '#' + element.innerText;
+    $a.href = '#' + element.id;
     $a.title = element.innerText;
     $a.dataset.scroll = '';
     $li.appendChild($a);
@@ -16,7 +16,7 @@ $h1s.forEach(function (element) {
 
 var current = null,
     viewHight = window.innerHeight,
-    offsetTopRate = 0.40,
+    offsetTopRate = 0.20,
     $article = document.querySelector('article');
 
 function isOutOfTop () {

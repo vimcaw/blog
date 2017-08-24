@@ -105,11 +105,10 @@
 <script src="/blog/js/function.js"></script>
 <script src="/blog/js/post.js"></script>
 <script src="/blog/js/sidebar.js"></script>
-<script src="/blog/js/smooth-scroll.min.js"></script>
+<script src="//unpkg.com/sweet-scroll/sweet-scroll.min.js"></script>
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
-    var scroll = new SmoothScroll('a[href*="#"]');
-
+    const sweetScroll = new SweetScroll({afterScroll: () => {location.replace($('.sidebar ul a.current').href)}});
     var gitment = new Gitment({
 		owner: 'vimcaw',
 		repo: 'blog',
@@ -120,8 +119,6 @@
 	});
 	gitment.render('comment')
 </script>
-
-
     <footer>
 	<ul class="social">
 		<li><a href="https://github.com/vimcaw" class="fa fa-github">GitHub</a></li>
