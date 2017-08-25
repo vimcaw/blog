@@ -68,10 +68,6 @@ article img {
   cursor: zoom-in;
   transition: all 0.8s;
 }
-article img.oringinal {
-  cursor: zoom-out;
-  z-index: 100;
-}
 article p,
 article ul,
 article li,
@@ -110,8 +106,42 @@ pre {
 .highlight div.line {
   font-family: "Source Code Pro", Menlo, Consolas, XHei, "微软雅黑", "黑体" !important;
 }
-#nav-btn {
+#nav {
   display: none;
+}
+#back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 5%;
+  margin: 0 10em 0 49em;
+  padding: 0.5em;
+  font-size: 1em;
+  background: rgba(0,0,0,0.5);
+  color: #eee;
+  z-index: 500;
+}
+#back-to-top:hover {
+  text-decoration: none;
+}
+.hidden {
+  visibility: hidden;
+}
+#image-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 800;
+  overflow: auto;
+  background: rgba(0,0,0,0.5);
+}
+#image-view img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: zoom-out;
 }
 @media screen and (min-width: 70em) {
   .content {
@@ -127,6 +157,9 @@ pre {
     width: 10em;
     margin-right: 0;
   }
+  #back-to-top {
+    margin: 0 0 0 55em;
+  }
 }
 @media screen and (max-width: 70em) and (min-width: 50em) {
   .content {
@@ -140,6 +173,10 @@ pre {
   .sidebar {
     width: 14%;
     right: 5%;
+  }
+  #back-to-top {
+    margin: 0;
+    right: 19%;
   }
 }
 @media screen and (max-width: 50em) {
@@ -159,29 +196,39 @@ pre {
   .sidebar {
     display: none;
     right: 5%;
-    bottom: 10%;
+    bottom: 16%;
     width: 6em;
     margin: 0;
     color: #eee;
     background: rgba(0,0,0,0.5);
   }
+  .sidebar ul li {
+    width: 60%;
+  }
   .sidebar ul li a {
     color: #eee;
   }
   .sidebar ul li a.overflow::after {
-    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5));
+    content: '...';
+    position: static;
+    background: none;
   }
   .sidebar ul li a.current {
     color: #e29388;
   }
-  #nav-btn {
+  #nav {
     display: inline-block;
     position: fixed;
-    right: 5%;
-    bottom: 5%;
+    right: 2em;
+    bottom: 4.5em;
     font-size: 1em;
     padding: 0.5em;
     color: #eee;
     background: rgba(0,0,0,0.5);
+  }
+  #back-to-top {
+    margin: 0;
+    right: 2em;
+    bottom: 2em;
   }
 }
