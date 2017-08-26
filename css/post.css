@@ -110,10 +110,8 @@ pre {
   display: none;
 }
 #back-to-top {
-  display: none;
   position: fixed;
   bottom: 5%;
-  margin: 0 10em 0 49em;
   padding: 0.45em;
   font-size: 1.5em;
   background: rgba(0,0,0,0.5);
@@ -170,7 +168,7 @@ pre {
     margin-right: 0;
   }
   #back-to-top {
-    margin: 0 0 0 55em;
+    margin: 0 0 0 37em;
   }
 }
 @media screen and (max-width: 70em) and (min-width: 50em) {
