@@ -53,6 +53,15 @@ window.addEventListener('scroll', function () {
     })
 })
 
-$('#nav-btn').addEventListener('click', function () {
+window.addEventListener('scroll', function () {
+    const backRate = 0.2;
+    if (document.body.scrollTop / document.body.scrollHeight >= 0.2) {
+        $('#back-to-top').style.display = 'block';
+    } else {
+        $('#back-to-top').style.display = 'none';
+    }
+});
+
+$('#nav').addEventListener('click', function () {
     $('.sidebar').style.display = ($('.sidebar').style.display === 'block') ? 'none' : 'block';
 });
