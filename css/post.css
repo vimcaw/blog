@@ -115,7 +115,7 @@ pre {
   bottom: 5%;
   margin: 0 10em 0 49em;
   padding: 0.45em;
-  font-size: 1em;
+  font-size: 1.5em;
   background: rgba(0,0,0,0.5);
   color: #eee;
   z-index: 500;
@@ -207,8 +207,8 @@ pre {
   }
   .sidebar {
     display: none;
-    right: 2em;
-    bottom: 7em;
+    right: 1em;
+    bottom: 9em;
     width: 6em;
     margin: 0;
     color: #eee;
@@ -234,16 +234,16 @@ pre {
   #nav {
     display: inline-block;
     position: fixed;
-    right: 2em;
-    bottom: 4.5em;
-    font-size: 1em;
+    right: 1em;
+    bottom: 3.5em;
+    font-size: 1.5em;
     padding: 0.5em;
     color: #eee;
     background: rgba(0,0,0,0.5);
   }
   #back-to-top {
     margin: 0;
-    right: 2em;
-    bottom: 2em;
+    right: 1em;
+    bottom: 1em;
   }
 }
