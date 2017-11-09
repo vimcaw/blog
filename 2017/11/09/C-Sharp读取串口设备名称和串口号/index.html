@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="" media="screen" />
+    
+    <link rel="stylesheet" href="/blog/css/style.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro">
+    <link rel="stylesheet" href="/blog/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/icon-font/iconfont.css">
+
+    
+
+    
+        <title>C-Sharp读取串口设备名称和串口号 - vimcaw的个人博客</title>
+        <link rel="stylesheet" href="/blog/css/post.css">
+        <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+    
+
+    
+
+    
+
+    
+        <link rel="shortcut icon" href="/blog/image/favicon.ico" type="image/vnd.microsoft.icon" />
+    
+</head>
+<body>
+    <header id="top">
+    <div class="icon"><a href="/blog/"><img src="/blog/image/icon.png" alt="">vimcaw的个人博客</a></div>
+    <ul>
+        <li><a href="/blog/" class="">首页</a></li>
+        
+            <ul class="site-category-list"><li class="site-category-list-item"><a class="site-category-list-link" href="/blog/categories/C/">C#</a></li><li class="site-category-list-item"><a class="site-category-list-link" href="/blog/categories/个人项目/">个人项目</a></li><li class="site-category-list-item"><a class="site-category-list-link" href="/blog/categories/软件/">软件</a></li></ul>
+        
+    </ul>
+</header>
+    <div class="content">
+    <div class="sidebar">
+    <h3>文章导航</h3>
+    <ul></ul>
+</div>
+    <div class="main">
+        <header>C-Sharp读取串口设备名称和串口号</header>
+        <div class="info">
+	<div class="category">
+            
+  <div class="article-category">
+    <ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/C/">C#</a></li></ul>
+  </div>
+
+     </div>
+     <ul>
+     	<li class="date">
+     		<span class="fa fa-calendar"> 发表于 </span>
+     		<span>2017-11-09</span>
+     	</li>
+     	<li class="tag">
+     		<span class="fa fa-tags"> 标签:</span>
+    		
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/串口/">串口</a></li></ul>
+
+     	</li>
+     </ul>
+    
+    
+</div>
+        <article>
+            <p>在C#中，一般而言，读取串口号用<code>SerialPort.GetPortNames()</code>即可，但是这样读取的串口号形式为“COM3”没有设备名称（比如“Arduino UNO”，本文介绍如何通过WMI查询读取设备名称。<br><a id="more"></a></p>
+<h1 id="Win32-SerialPort-API"><a href="#Win32-SerialPort-API" class="headerlink" title="Win32 SerialPort API"></a>Win32 SerialPort API</h1><p>首先定义枚举，枚举出Win32 API，其中<code>Win32_SerialPort</code>就是串口API<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">/// &lt;summary&gt;</div><div class="line">/// 枚举win32 api</div><div class="line">/// &lt;/summary&gt;</div><div class="line">public enum HardwareEnum</div><div class="line">&#123;</div><div class="line">    // 硬件</div><div class="line">    Win32_Processor, // CPU 处理器</div><div class="line">    Win32_PhysicalMemory, // 物理内存条</div><div class="line">    Win32_Keyboard, // 键盘</div><div class="line">    Win32_PointingDevice, // 点输入设备，包括鼠标。</div><div class="line">    Win32_FloppyDrive, // 软盘驱动器</div><div class="line">    Win32_DiskDrive, // 硬盘驱动器</div><div class="line">    Win32_CDROMDrive, // 光盘驱动器</div><div class="line">    Win32_BaseBoard, // 主板</div><div class="line">    Win32_BIOS, // BIOS 芯片</div><div class="line">    Win32_ParallelPort, // 并口</div><div class="line">    Win32_SerialPort, // 串口</div><div class="line">    Win32_SerialPortConfiguration, // 串口配置</div><div class="line">    Win32_SoundDevice, // 多媒体设置，一般指声卡。</div><div class="line">    Win32_SystemSlot, // 主板插槽 (ISA &amp; PCI &amp; AGP)</div><div class="line">    Win32_USBController, // USB 控制器</div><div class="line">    Win32_NetworkAdapter, // 网络适配器</div><div class="line">    Win32_NetworkAdapterConfiguration, // 网络适配器设置</div><div class="line">    Win32_Printer, // 打印机</div><div class="line">    Win32_PrinterConfiguration, // 打印机设置</div><div class="line">    Win32_PrintJob, // 打印机任务</div><div class="line">    Win32_TCPIPPrinterPort, // 打印机端口</div><div class="line">    Win32_POTSModem, // MODEM</div><div class="line">    Win32_POTSModemToSerialPort, // MODEM 端口</div><div class="line">    Win32_DesktopMonitor, // 显示器</div><div class="line">    Win32_DisplayConfiguration, // 显卡</div><div class="line">    Win32_DisplayControllerConfiguration, // 显卡设置</div><div class="line">    Win32_VideoController, // 显卡细节。</div><div class="line">    Win32_VideoSettings, // 显卡支持的显示模式。</div><div class="line"></div><div class="line">    // 操作系统</div><div class="line">    Win32_TimeZone, // 时区</div><div class="line">    Win32_SystemDriver, // 驱动程序</div><div class="line">    Win32_DiskPartition, // 磁盘分区</div><div class="line">    Win32_LogicalDisk, // 逻辑磁盘</div><div class="line">    Win32_LogicalDiskToPartition, // 逻辑磁盘所在分区及始末位置。</div><div class="line">    Win32_LogicalMemoryConfiguration, // 逻辑内存配置</div><div class="line">    Win32_PageFile, // 系统页文件信息</div><div class="line">    Win32_PageFileSetting, // 页文件设置</div><div class="line">    Win32_BootConfiguration, // 系统启动配置</div><div class="line">    Win32_ComputerSystem, // 计算机信息简要</div><div class="line">    Win32_OperatingSystem, // 操作系统信息</div><div class="line">    Win32_StartupCommand, // 系统自动启动程序</div><div class="line">    Win32_Service, // 系统安装的服务</div><div class="line">    Win32_Group, // 系统管理组</div><div class="line">    Win32_GroupUser, // 系统组帐号</div><div class="line">    Win32_UserAccount, // 用户帐号</div><div class="line">    Win32_Process, // 系统进程</div><div class="line">    Win32_Thread, // 系统线程</div><div class="line">    Win32_Share, // 共享</div><div class="line">    Win32_NetworkClient, // 已安装的网络客户端</div><div class="line">    Win32_NetworkProtocol, // 已安装的网络协议</div><div class="line">    Win32_PnPEntity,//all device</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="WMI读取硬件信息"><a href="#WMI读取硬件信息" class="headerlink" title="WMI读取硬件信息"></a>WMI读取硬件信息</h1><p>然后定义WMI读取硬件信息的函数，传入上面枚举的Win32 API和属性名作为参数，返回读取到的设备信息列表（string数组）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">/// &lt;summary&gt;</div><div class="line">/// WMI读取硬件信息</div><div class="line">/// &lt;/summary&gt;</div><div class="line">/// &lt;param name=&quot;hardType&quot;&gt;硬件类型&lt;/param&gt;</div><div class="line">/// &lt;param name=&quot;propKey&quot;&gt;属性名&lt;/param&gt;</div><div class="line">/// &lt;returns&gt;设备信息列表&lt;/returns&gt;</div><div class="line">public static string[] MulGetHardwareInfo(HardwareEnum hardType, string propKey)</div><div class="line">&#123;</div><div class="line"></div><div class="line">    List&lt;string&gt; deviceList = new List&lt;string&gt;();</div><div class="line">    try</div><div class="line">    &#123;</div><div class="line">        using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(&quot;select * from &quot; + hardType))</div><div class="line">        &#123;</div><div class="line">            var hardInfos = searcher.Get();</div><div class="line">            foreach (var hardInfo in hardInfos)</div><div class="line">            &#123;</div><div class="line">                deviceList.Add(hardInfo.Properties[propKey].Value.ToString());</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            searcher.Dispose();</div><div class="line">        &#125;</div><div class="line">        return deviceList.ToArray();</div><div class="line">    &#125;</div><div class="line">    catch</div><div class="line">    &#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line">    finally</div><div class="line">    &#123; deviceList = null; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="读取串口设备列表"><a href="#读取串口设备列表" class="headerlink" title="读取串口设备列表"></a>读取串口设备列表</h1><p>接着调用上面的函数，传入<code>Win32_SerialPort</code>接口和<code>Name</code>属性名，即可得到带设备名的串口列表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string[] deviceList = MulGetHardwareInfo(HardwareEnum.Win32_SerialPort, &quot;Name&quot;);</div></pre></td></tr></table></figure></p>
+<p>得到的形式类似：</p>
+<ol>
+<li>Arduino Uno (COM3)</li>
+<li>蓝牙链接上的标准串行 (COM4)</li>
+<li>蓝牙链接上的标准串行 (COM5)</li>
+</ol>
+
+        </article>
+        <div id="comment"></div>
+    </div>
+    <div id="nav" class="fa fa-bars"></div>
+    <a href="#top" data-scroll id="back-to-top" class="fa fa-arrow-up"></a>
+    <div id="image-view" class="hidden"><img src="" alt=""></div>
+</div>
+
+<script src="/blog/js/function.js"></script>
+<script src="/blog/js/post.js"></script>
+<script src="/blog/js/sidebar.js"></script>
+<script src="//unpkg.com/sweet-scroll/sweet-scroll.min.js"></script>
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    const sweetScroll = new SweetScroll({afterScroll: () => {location.replace($('.sidebar ul a.current').href)}});
+    var gitment = new Gitment({
+		owner: 'vimcaw',
+		repo: 'blog',
+		oauth: {
+		    client_id: '5a72160e0f1754a6e220',
+		    client_secret: 'cf114e26c997ccf6b9714bb367db293b6f646455',
+		},
+	});
+	gitment.render('comment')
+</script>
+    <footer>
+	<ul class="social">
+		<li><a href="https://github.com/vimcaw" title="GitHub账号：https://github.com/vimcaw" class="fa fa-github"></a></li>
+		<li><a href="mailto:vimcaw@gmail.com" title="Email: vimcaw@gmail.com" class="fa fa-envelope"></a></li>
+		<li><a href="https://www.zhihu.com/people/zhu-chang-sheng-87/" title="知乎账号: https://www.zhihu.com/people/zhu-chang-sheng-87/" class="iconfont icon-matuwang-zhihufangxingdianji"></a></li>
+	</ul>
+	<div class="copyright"><p>© 2017 <a href="https://github.com/vimcaw">Rico Zhu (朱昌盛)</a></p></div>
+	<div class="powered-by"><p>Powered by <a href="https://hexo.io/">Hexo</a></p></div>
+</footer>
+</body>
+</html>
