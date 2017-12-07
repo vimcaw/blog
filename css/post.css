@@ -18,7 +18,6 @@ body {
   color: #373737;
 }
 .main header {
-  font-size: 3em;
   padding: 1em 0;
 }
 .content {
@@ -61,6 +60,9 @@ h1 {
 }
 h2 {
   border-bottom: 0.1em solid #363636;
+}
+figure {
+  margin: 0;
 }
 article img {
   position: relative;
@@ -163,6 +165,9 @@ pre {
     width: 50em;
     margin-right: 20em;
   }
+  header {
+    font-size: 3em;
+  }
   .sidebar {
     width: 10em;
     margin-right: 0;
@@ -199,6 +204,9 @@ pre {
     width: 90%;
     margin: 0;
     padding: 1em 5% 1em 5%;
+  }
+  .main header {
+    font-size: 2rem;
   }
   blockquote {
     margin: 0;
