@@ -165,8 +165,8 @@ pre {
     width: 50em;
     margin-right: 20em;
   }
-  header {
-    font-size: 3em;
+  .main header {
+    font-size: 2.5em;
   }
   .sidebar {
     width: 10em;
