@@ -304,8 +304,8 @@ footer .social li a:hover {
   position: absolute;
   top: -15px;
   left: -20px;
-  height: 30px;
-  padding: 5px 20px;
+  height: 40px;
+  padding: 0;
   background: #31b976;
   box-shadow: 5px 5px 5px #ddd;
   font-size: 1.5em;
@@ -336,7 +336,8 @@ footer .social li a:hover {
   padding: 0;
 }
 .info .category ul li a {
-  line-height: 30px;
+  line-height: 40px;
+  padding: 0 20px;
   color: #fff;
 }
 .info .category ul li a:hover {

@@ -88,8 +88,12 @@
 		<li><a href="mailto:vimcaw@gmail.com" title="Email: vimcaw@gmail.com" class="fa fa-envelope"></a></li>
 		<li><a href="https://www.zhihu.com/people/zhu-chang-sheng-87/" title="知乎账号: https://www.zhihu.com/people/zhu-chang-sheng-87/" class="iconfont icon-matuwang-zhihufangxingdianji"></a></li>
 	</ul>
-	<div class="copyright"><p>© 2017 <a href="https://github.com/vimcaw">Rico Zhu (朱昌盛)</a></p></div>
+	<div class="copyright"><p>Copyright © <span id="current-year">current</span> <a href="https://github.com/vimcaw"><span>vimcaw</span></a></p></div>
 	<div class="powered-by"><p>Powered by <a href="https://hexo.io/">Hexo</a></p></div>
 </footer>
+<script>
+    var date = new Date();
+    document.getElementById("current-year").innerText= date.getFullYear();
+</script>
 </body>
 </html>
