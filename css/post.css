@@ -57,9 +57,28 @@ body {
 }
 h1 {
   color: #000;
+  border-bottom: 0.1em solid #363636;
+  font-size: 2rem;
 }
 h2 {
-  border-bottom: 0.1em solid #363636;
+  font-size: 1.7rem;
+}
+h3 {
+  font-size: 1.4rem;
+}
+h4 {
+  font-size: 1.2rem;
+}
+h5 {
+  font-size: 1rem;
+}
+body code {
+  display: inline-block;
+  margin: 0 0.2rem;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  background: #ffe0ae;
+  color: #6e5e41;
 }
 figure {
   margin: 0;
@@ -166,7 +185,7 @@ pre {
     margin-right: 20em;
   }
   .main header {
-    font-size: 2.5em;
+    font-size: 2.5rem;
   }
   .sidebar {
     width: 10em;
@@ -184,6 +203,9 @@ pre {
   .main {
     width: 70%;
     margin-right: 30%;
+  }
+  .main header {
+    font-size: 2.5rem;
   }
   .sidebar {
     width: 14%;
