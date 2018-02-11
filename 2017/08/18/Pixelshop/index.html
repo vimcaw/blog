@@ -88,25 +88,31 @@
     <div id="nav" class="fa fa-bars"></div>
     <a href="#top" data-scroll id="back-to-top" class="fa fa-arrow-up"></a>
     <div id="image-view" class="hidden"><img src="" alt=""></div>
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNDA4MS8xMDYxOQ==">
+    <script type="text/javascript">
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
 </div>
 
 <script src="/blog/js/function.js"></script>
 <script src="/blog/js/post.js"></script>
+<script src="/blog/js/heading-navigation.min.js"></script>
+<script src="/blog/js/smooth-scroll.min.js"></script>
 <script src="/blog/js/sidebar.js"></script>
-<script src="//unpkg.com/sweet-scroll/sweet-scroll.min.js"></script>
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-    const sweetScroll = new SweetScroll({afterScroll: () => {location.replace($('.sidebar ul a.current').href)}});
-    var gitment = new Gitment({
-		owner: 'vimcaw',
-		repo: 'blog',
-		oauth: {
-		    client_id: '5a72160e0f1754a6e220',
-		    client_secret: 'cf114e26c997ccf6b9714bb367db293b6f646455',
-		},
-	});
-	gitment.render('comment')
-</script>
     <footer>
 	<ul class="social">
 		<li><a href="https://github.com/vimcaw" title="GitHub账号：https://github.com/vimcaw" class="fa fa-github"></a></li>

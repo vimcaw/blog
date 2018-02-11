@@ -180,11 +180,13 @@ pre {
     width: 70em;
     margin: auto;
   }
-  .main {
+  .main,
+  #lv-container {
     width: 50em;
     margin-right: 20em;
   }
-  .main header {
+  .main header,
+  #lv-container header {
     font-size: 2.5rem;
   }
   .sidebar {
@@ -200,11 +202,13 @@ pre {
     width: 90%;
     margin: auto;
   }
-  .main {
+  .main,
+  #lv-container {
     width: 70%;
     margin-right: 30%;
   }
-  .main header {
+  .main header,
+  #lv-container header {
     font-size: 2.5rem;
   }
   .sidebar {
@@ -222,12 +226,14 @@ pre {
     margin: 0;
     overflow-wrap: break-word;
   }
-  .main {
+  .main,
+  #lv-container {
     width: 90%;
     margin: 0;
     padding: 1em 5% 1em 5%;
   }
-  .main header {
+  .main header,
+  #lv-container header {
     font-size: 2rem;
   }
   blockquote {
