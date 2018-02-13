@@ -7,6 +7,7 @@ body {
   margin: 0;
   width: 100%;
   transition: all 0.8s;
+  counter-reset: h1;
 }
 .main {
   position: relative;
@@ -29,21 +30,19 @@ body {
   padding: 2%;
   background: #fff;
   z-index: 500;
+  box-shadow: 0 0 1rem rgba(0,0,0,0.4);
 }
-.sidebar ul {
+.sidebar ol {
+  max-height: none;
   position: relative;
-  padding-left: 20px;
-  font-size: 0.8em;
+  padding-left: 2rem;
+  font-size: 0.9rem;
   overflow: hidden;
 }
-.sidebar ul li {
-  list-style-type: disc;
-  line-height: 2em;
+.sidebar ol li {
+  line-height: 1.8;
 }
-.sidebar ul a {
-  white-space: nowrap;
-}
-.sidebar ul a.overflow::after {
+.sidebar ol a.overflow::after {
   content: '';
   position: absolute;
   right: 0;
@@ -52,22 +51,39 @@ body {
   background: linear-gradient(to right, rgba(255,255,255,0), #fff);
   z-index: 1;
 }
-.sidebar ul a.current {
-  color: #bf0909;
+.sidebar ol a::before {
+  width: 0.2rem;
+}
+.sidebar ol a.toc-link.is-active-link::before {
+  background: #31b976;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+  border-left: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding-left: 0.6em;
+  line-height: 1.5;
+  border-left: 0.3rem solid #31b976;
 }
 h1 {
-  color: #000;
-  border-bottom: 0.1em solid #363636;
   font-size: 2rem;
 }
 h2 {
-  font-size: 1.7rem;
-}
-h3 {
   font-size: 1.4rem;
 }
-h4 {
+h3 {
   font-size: 1.2rem;
+}
+h4 {
+  font-size: 1.1rem;
 }
 h5 {
   font-size: 1rem;
@@ -79,6 +95,9 @@ body code {
   border-radius: 0.3rem;
   background: #ffe0ae;
   color: #6e5e41;
+}
+td.code {
+  cursor: text;
 }
 figure {
   margin: 0;
@@ -127,16 +146,22 @@ pre {
 .highlight div.line {
   font-family: "Source Code Pro", Menlo, Consolas, XHei, "微软雅黑", "黑体" !important;
 }
+#nav,
+#back-to-top {
+  border-radius: 50%;
+  box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+}
 #nav {
   display: none;
+  z-index: 500;
 }
 #back-to-top {
   position: fixed;
   bottom: 5%;
   padding: 0.45em;
   font-size: 1.5em;
-  background: rgba(0,0,0,0.5);
-  color: #eee;
+  background: #fff;
+  color: #252525;
   z-index: 500;
 }
 #back-to-top:hover {
@@ -177,24 +202,26 @@ pre {
 @media screen and (min-width: 70em) {
   .content {
     position: relative;
-    width: 70em;
+    width: 80em;
     margin: auto;
   }
-  .main,
-  #lv-container {
+  .main {
     width: 50em;
-    margin-right: 20em;
+    margin-right: 15em;
   }
-  .main header,
-  #lv-container header {
+  .main header {
     font-size: 2.5rem;
   }
   .sidebar {
-    width: 10em;
-    margin-right: 0;
+    display: block;
+    left: 65rem;
+    width: 15em;
+    max-height: 80%;
+    overflow: auto;
+    margin: 0;
   }
   #back-to-top {
-    margin: 0 0 0 37em;
+    margin: 0 0 0 38.5em;
   }
 }
 @media screen and (max-width: 70em) and (min-width: 50em) {
@@ -202,18 +229,20 @@ pre {
     width: 90%;
     margin: auto;
   }
-  .main,
-  #lv-container {
+  .main {
     width: 70%;
     margin-right: 30%;
   }
-  .main header,
-  #lv-container header {
+  .main header {
     font-size: 2.5rem;
   }
   .sidebar {
+    display: block;
     width: 14%;
     right: 5%;
+  }
+  .sidebar ol {
+    font-size: 0.8rem;
   }
   #back-to-top {
     margin: 0;
@@ -226,14 +255,12 @@ pre {
     margin: 0;
     overflow-wrap: break-word;
   }
-  .main,
-  #lv-container {
+  .main {
     width: 90%;
     margin: 0;
     padding: 1em 5% 1em 5%;
   }
-  .main header,
-  #lv-container header {
+  .main header {
     font-size: 2rem;
   }
   blockquote {
@@ -241,28 +268,32 @@ pre {
   }
   .sidebar {
     display: none;
-    right: 1em;
-    bottom: 9em;
-    width: 6em;
+    box-sizing: border-box;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    overflow: auto;
     margin: 0;
-    color: #eee;
-    background: rgba(0,0,0,0.5);
+    color: #252525;
+    background: #fff;
+    transition: all 0.8s;
   }
-  .sidebar ul li {
-    width: 60%;
+  .sidebar ol {
+    font-size: 0.9em;
   }
-  .sidebar ul li a {
-    color: #eee;
+  .sidebar ol li a {
+    color: #252525;
   }
-  .sidebar ul li a:hover {
+  .sidebar ol li a:hover {
     text-decoration: none;
   }
-  .sidebar ul li a.overflow::after {
+  .sidebar ol li a.overflow::after {
     content: '...';
     position: static;
     background: none;
   }
-  .sidebar ul li a.current {
+  .sidebar ol li a.current {
     color: #8bc3fe;
   }
   #nav {
@@ -272,8 +303,18 @@ pre {
     bottom: 3.5em;
     font-size: 1.5em;
     padding: 0.5em;
-    color: #eee;
+    color: #252525;
+    background: #fff;
+  }
+  .shade {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0,0,0,0.5);
+    transition: all 0.8s;
   }
   #back-to-top {
     margin: 0;
