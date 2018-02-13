@@ -17,7 +17,7 @@
     
         <title>Pixelshop - vimcaw的个人博客</title>
         <link rel="stylesheet" href="/blog/css/post.css">
-        <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.1.1/tocbot.css">
     
 
     
@@ -39,10 +39,7 @@
     </ul>
 </header>
     <div class="content">
-    <div class="sidebar">
-    <h3>文章导航</h3>
-    <ul></ul>
-</div>
+    <div class="sidebar"></div>
     <div class="main">
         <header>Pixelshop</header>
         <div class="info">
@@ -83,12 +80,7 @@
 <p>预览：<a href="https://vimcaw.github.io/pixelshop/dist/index.html">https://vimcaw.github.io/pixelshop/dist/index.html</a></p>
 
         </article>
-        <div id="comment"></div>
-    </div>
-    <div id="nav" class="fa fa-bars"></div>
-    <a href="#top" data-scroll id="back-to-top" class="fa fa-arrow-up"></a>
-    <div id="image-view" class="hidden"><img src="" alt=""></div>
-    <!-- 来必力City版安装代码 -->
+        <!-- 来必力City版安装代码 -->
 <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDA4MS8xMDYxOQ==">
     <script type="text/javascript">
         (function(d, s) {
@@ -106,13 +98,12 @@
     <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
 </div>
 <!-- City版安装代码已完成 -->
+    </div>
+    <div id="nav" class="fa fa-bars"></div>
+    <div class="shade"></div>
+    <a href="#top" data-scroll id="back-to-top" class="fa fa-arrow-up"></a>
+    <div id="image-view" class="hidden"><img src="" alt=""></div>
 </div>
-
-<script src="/blog/js/function.js"></script>
-<script src="/blog/js/post.js"></script>
-<script src="/blog/js/heading-navigation.min.js"></script>
-<script src="/blog/js/smooth-scroll.min.js"></script>
-<script src="/blog/js/sidebar.js"></script>
     <footer>
 	<ul class="social">
 		<li><a href="https://github.com/vimcaw" title="GitHub账号：https://github.com/vimcaw" class="fa fa-github"></a></li>
@@ -122,9 +113,16 @@
 	<div class="copyright"><p>Copyright © <span id="current-year">current</span> <a href="https://github.com/vimcaw"><span>vimcaw</span></a></p></div>
 	<div class="powered-by"><p>Powered by <a href="https://hexo.io/">Hexo</a></p></div>
 </footer>
-<script>
+    <script>
     var date = new Date();
     document.getElementById("current-year").innerText= date.getFullYear();
 </script>
+
+
+    <script src="/blog/js/function.js"></script>
+<script src="/blog/js/tocbot.min.js"></script>
+<script src="/blog/js/post.js"></script>
+
+
 </body>
 </html>
