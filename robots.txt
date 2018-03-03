@@ -10,5 +10,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://www.arao.me/sitemap.xml
-Sitemap: http://www.arao.me/baidusitemap.xml
+Sitemap: https://vimcaw.github.io/blog/sitemap.xml
+Sitemap: https://vimcaw.github.io/blog/baidusitemap.xml
