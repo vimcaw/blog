@@ -3,4 +3,4 @@ My personal blog, record programming experience (mainly web front end) and softw
 
 link: https://vimcaw.github.io/blog/
 
-Power by [Hexo](https://hexo.io)
+Powered by [Hexo](https://hexo.io)
