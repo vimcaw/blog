@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://vimcaw.github.io/blog/blog/2017/08/13/ShadowsocksR%E4%BB%A3%E7%90%86%E6%96%B9%E5%BC%8F/</loc>
-    <lastmod>2018-03-12T15:57:00.856Z</lastmod>
+    <lastmod>2018-03-13T02:48:39.734Z</lastmod>
     <data>
         <display>
         <title>Shadowsocks代理方式</title>
@@ -203,9 +203,9 @@
         <title>Pixelshop</title>
         <pubTime>2017-08-18T06:09:00.000Z</pubTime>
         
-        <tag>canvas</tag>
-         
         <tag>Web-App</tag>
+         
+        <tag>canvas</tag>
          
         <tag>html5</tag>
          
@@ -227,13 +227,13 @@
         <title>用Canvas实现图层</title>
         <pubTime>2018-02-10T08:32:00.000Z</pubTime>
         
-        <tag>canvas</tag>
-         
-        <tag>图层</tag>
-         
         <tag>Web-App</tag>
          
+        <tag>canvas</tag>
+         
         <tag>html5</tag>
+         
+        <tag>图层</tag>
          
          
            
